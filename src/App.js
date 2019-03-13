@@ -23,6 +23,14 @@ class App extends Component {
     this.setState({ flashcards: [flashcard, ...this.state.flashcards], });
   };
 
+  removeFlashcard = (id) => {
+    const flashcards = this.state.flashcards.filters( flashcard => {
+      if (flashcard.id !==id)
+      return flashcard
+    });
+    this.setState({flashcards: [...flashcards], });
+  };
+
   render() {
     return (
       <Container>
@@ -32,6 +40,7 @@ class App extends Component {
         <br />
         <br />
         <FlashcardForm add={this.addFlashcard} />
+        <Flashcards flashcards={this.state.flashcards} remove={this.removeFlashcard} />
 
       </Container>
     );

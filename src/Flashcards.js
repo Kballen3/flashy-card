@@ -2,11 +2,11 @@ import React from 'react'
 import { Card, } from 'semantic-ui-react'
 import Flashcard from './Flashcard';
 
-const Flashcards = (props) => (
+const Flashcards = ({ flashcards, remove}) => (
     <Card.Group>
         {
-            props.flashcards.map( flashcard => (
-                <Flashcard key={flashcard.id} {...flashcard} />
+            flashcards.map( flashcard => (
+                <Flashcard key={flashcard.id} {...flashcard} remove={remove} />
             ))
         }
 
