@@ -24,7 +24,7 @@ class App extends Component {
   };
 
   removeFlashcard = (id) => {
-    const flashcards = this.state.flashcards.filters( flashcard => {
+    const flashcards = this.state.flashcards.filter( flashcard => {
       if (flashcard.id !==id)
       return flashcard
     });
@@ -36,11 +36,10 @@ class App extends Component {
       <Container>
         <h1> Flash Card Challenge </h1>
         <hr />
-        <Flashcards flashcards={this.state.flashcards} />
+        <Flashcards flashcards={this.state.flashcards} remove={this.removeFlashcard} />
         <br />
         <br />
         <FlashcardForm add={this.addFlashcard} />
-        <Flashcards flashcards={this.state.flashcards} remove={this.removeFlashcard} />
 
       </Container>
     );
